@@ -1,6 +1,6 @@
 {
     "charts": [],
-    "content": "[]",
+    "content": "[{\"id\": \"sp_header1\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\"><b>Quick Access</b></span>\", \"col\": 12}}, {\"id\": \"sp_short1\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"School\", \"col\": 4}}, {\"id\": \"sp_short2\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Vehicle\", \"col\": 4}}, {\"id\": \"sp_short3\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Book Sample Loading\", \"col\": 4}}, {\"id\": \"sp_short4\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Book Sample Distribution\", \"col\": 4}}, {\"id\": \"sp_short5\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Book Sample Collection\", \"col\": 4}}, {\"id\": \"sp_spacer1\", \"type\": \"spacer\", \"data\": {\"col\": 12}}, {\"id\": \"sp_header2\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\"><b>Reports</b></span>\", \"col\": 12}}, {\"id\": \"sp_link1\", \"type\": \"link\", \"data\": {\"link_type\": \"Report\", \"link_to\": \"Pending Sample Collection\", \"label\": \"Pending Sample Collection\", \"col\": 4}}]",
     "creation": "2024-01-01 00:00:00.000000",
     "custom_blocks": [],
     "docstatus": 0,
@@ -79,30 +79,35 @@
     "sequence_id": 1,
     "shortcuts": [
         {
+            "color": "Blue",
             "doc_view": "List",
             "label": "School",
             "link_to": "School",
             "type": "DocType"
         },
         {
+            "color": "Green",
             "doc_view": "List",
             "label": "Vehicle",
             "link_to": "Vehicle",
             "type": "DocType"
         },
         {
+            "color": "Orange",
             "doc_view": "List",
             "label": "Book Sample Loading",
             "link_to": "Book Sample Loading",
             "type": "DocType"
         },
         {
+            "color": "Yellow",
             "doc_view": "List",
             "label": "Book Sample Distribution",
             "link_to": "Book Sample Distribution",
             "type": "DocType"
         },
         {
+            "color": "Red",
             "doc_view": "List",
             "label": "Book Sample Collection",
             "link_to": "Book Sample Collection",
