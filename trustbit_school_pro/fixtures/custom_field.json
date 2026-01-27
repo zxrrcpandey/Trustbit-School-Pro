@@ -1,6 +1,7 @@
 [
     {
         "doctype": "Custom Field",
+        "name": "Stock Entry-custom_book_sample_loading",
         "dt": "Stock Entry",
         "fieldname": "custom_book_sample_loading",
         "fieldtype": "Link",
@@ -12,6 +13,7 @@
     },
     {
         "doctype": "Custom Field",
+        "name": "Stock Entry-custom_book_sample_distribution",
         "dt": "Stock Entry",
         "fieldname": "custom_book_sample_distribution",
         "fieldtype": "Link",
@@ -23,6 +25,7 @@
     },
     {
         "doctype": "Custom Field",
+        "name": "Stock Entry-custom_book_sample_collection",
         "dt": "Stock Entry",
         "fieldname": "custom_book_sample_collection",
         "fieldtype": "Link",
