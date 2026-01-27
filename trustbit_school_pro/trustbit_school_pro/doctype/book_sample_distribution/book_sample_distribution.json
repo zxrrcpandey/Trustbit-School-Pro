@@ -1,0 +1,316 @@
+{
+    "actions": [],
+    "autoname": "naming_series:",
+    "creation": "2024-01-01 00:00:00.000000",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "naming_series",
+        "distribution_date",
+        "school",
+        "column_break_1",
+        "distributor",
+        "distributor_name",
+        "status",
+        "reference_section",
+        "loading_reference",
+        "vehicle",
+        "source_warehouse",
+        "column_break_ref",
+        "target_warehouse",
+        "expected_return_date",
+        "school_contact_section",
+        "contact_person",
+        "contact_phone",
+        "items_section",
+        "items",
+        "totals_section",
+        "total_qty_distributed",
+        "column_break_totals",
+        "total_qty_collected",
+        "total_qty_pending",
+        "stock_entry_section",
+        "stock_entry",
+        "amended_from",
+        "remarks"
+    ],
+    "fields": [
+        {
+            "fieldname": "naming_series",
+            "fieldtype": "Select",
+            "label": "Series",
+            "options": "BSD-.YYYY.-",
+            "reqd": 1
+        },
+        {
+            "default": "Today",
+            "fieldname": "distribution_date",
+            "fieldtype": "Date",
+            "in_list_view": 1,
+            "in_standard_filter": 1,
+            "label": "Distribution Date",
+            "reqd": 1
+        },
+        {
+            "fieldname": "school",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "in_standard_filter": 1,
+            "label": "School",
+            "options": "School",
+            "reqd": 1,
+            "search_index": 1
+        },
+        {
+            "fieldname": "column_break_1",
+            "fieldtype": "Column Break"
+        },
+        {
+            "description": "Employee who distributed the samples",
+            "fieldname": "distributor",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "in_standard_filter": 1,
+            "label": "Distributor (Employee)",
+            "options": "Employee",
+            "reqd": 1
+        },
+        {
+            "fetch_from": "distributor.employee_name",
+            "fieldname": "distributor_name",
+            "fieldtype": "Data",
+            "label": "Distributor Name",
+            "read_only": 1
+        },
+        {
+            "default": "Distributed",
+            "fieldname": "status",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "in_standard_filter": 1,
+            "label": "Status",
+            "options": "Draft\nDistributed\nPartially Collected\nFully Collected\nCancelled",
+            "read_only": 1
+        },
+        {
+            "fieldname": "reference_section",
+            "fieldtype": "Section Break",
+            "label": "Reference & Warehouse"
+        },
+        {
+            "description": "Optional: Link to Book Sample Loading",
+            "fieldname": "loading_reference",
+            "fieldtype": "Link",
+            "label": "Loading Reference",
+            "options": "Book Sample Loading"
+        },
+        {
+            "fetch_from": "loading_reference.vehicle",
+            "fieldname": "vehicle",
+            "fieldtype": "Link",
+            "label": "Vehicle",
+            "options": "Vehicle",
+            "read_only_depends_on": "loading_reference"
+        },
+        {
+            "description": "Van warehouse or main warehouse",
+            "fieldname": "source_warehouse",
+            "fieldtype": "Link",
+            "label": "Source Warehouse",
+            "options": "Warehouse",
+            "reqd": 1
+        },
+        {
+            "fieldname": "column_break_ref",
+            "fieldtype": "Column Break"
+        },
+        {
+            "description": "Single 'Samples in Field' warehouse",
+            "fieldname": "target_warehouse",
+            "fieldtype": "Link",
+            "label": "Target Warehouse",
+            "options": "Warehouse",
+            "reqd": 1
+        },
+        {
+            "fieldname": "expected_return_date",
+            "fieldtype": "Date",
+            "label": "Expected Return Date"
+        },
+        {
+            "collapsible": 1,
+            "fieldname": "school_contact_section",
+            "fieldtype": "Section Break",
+            "label": "School Contact"
+        },
+        {
+            "fetch_from": "school.contact_person",
+            "fieldname": "contact_person",
+            "fieldtype": "Data",
+            "label": "Contact Person"
+        },
+        {
+            "fetch_from": "school.mobile",
+            "fieldname": "contact_phone",
+            "fieldtype": "Data",
+            "label": "Contact Phone"
+        },
+        {
+            "fieldname": "items_section",
+            "fieldtype": "Section Break",
+            "label": "Items"
+        },
+        {
+            "fieldname": "items",
+            "fieldtype": "Table",
+            "label": "Books Distributed",
+            "options": "Book Sample Distribution Item",
+            "reqd": 1
+        },
+        {
+            "fieldname": "totals_section",
+            "fieldtype": "Section Break",
+            "label": "Totals"
+        },
+        {
+            "fieldname": "total_qty_distributed",
+            "fieldtype": "Float",
+            "label": "Total Qty Distributed",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_totals",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "total_qty_collected",
+            "fieldtype": "Float",
+            "label": "Total Qty Collected",
+            "read_only": 1
+        },
+        {
+            "fieldname": "total_qty_pending",
+            "fieldtype": "Float",
+            "label": "Total Qty Pending",
+            "read_only": 1
+        },
+        {
+            "collapsible": 1,
+            "fieldname": "stock_entry_section",
+            "fieldtype": "Section Break",
+            "label": "Stock Entry Reference"
+        },
+        {
+            "description": "Auto-created Stock Entry for material transfer to Samples in Field",
+            "fieldname": "stock_entry",
+            "fieldtype": "Link",
+            "label": "Stock Entry",
+            "options": "Stock Entry",
+            "read_only": 1
+        },
+        {
+            "fieldname": "amended_from",
+            "fieldtype": "Link",
+            "label": "Amended From",
+            "no_copy": 1,
+            "options": "Book Sample Distribution",
+            "print_hide": 1,
+            "read_only": 1
+        },
+        {
+            "fieldname": "remarks",
+            "fieldtype": "Small Text",
+            "label": "Remarks"
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "is_submittable": 1,
+    "links": [
+        {
+            "link_doctype": "Book Sample Collection",
+            "link_fieldname": "distribution_reference"
+        },
+        {
+            "link_doctype": "Stock Entry",
+            "link_fieldname": "custom_book_sample_distribution"
+        }
+    ],
+    "modified": "2024-01-01 00:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "Trustbit School Pro",
+    "name": "Book Sample Distribution",
+    "naming_rule": "By \"Naming Series\" field",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "amend": 1,
+            "cancel": 1,
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "submit": 1,
+            "write": 1
+        },
+        {
+            "amend": 1,
+            "cancel": 1,
+            "create": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Stock User",
+            "share": 1,
+            "submit": 1,
+            "write": 1
+        },
+        {
+            "amend": 1,
+            "cancel": 1,
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Stock Manager",
+            "share": 1,
+            "submit": 1,
+            "write": 1
+        }
+    ],
+    "search_fields": "school,distributor,distribution_date",
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [
+        {
+            "color": "orange",
+            "title": "Draft"
+        },
+        {
+            "color": "blue",
+            "title": "Distributed"
+        },
+        {
+            "color": "yellow",
+            "title": "Partially Collected"
+        },
+        {
+            "color": "green",
+            "title": "Fully Collected"
+        },
+        {
+            "color": "red",
+            "title": "Cancelled"
+        }
+    ],
+    "track_changes": 1
+}

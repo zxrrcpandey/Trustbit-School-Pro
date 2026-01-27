@@ -1,0 +1,1 @@
+# Book Sample Collection Doctype

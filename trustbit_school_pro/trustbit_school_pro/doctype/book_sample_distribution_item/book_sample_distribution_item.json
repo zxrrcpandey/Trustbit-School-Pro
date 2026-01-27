@@ -1,0 +1,137 @@
+{
+    "actions": [],
+    "creation": "2024-01-01 00:00:00.000000",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "item_code",
+        "item_name",
+        "class_grade",
+        "subject",
+        "column_break_1",
+        "qty",
+        "stock_uom",
+        "available_qty_in_van",
+        "collection_section",
+        "qty_collected",
+        "qty_pending",
+        "collection_status",
+        "column_break_2",
+        "expected_return_date",
+        "remarks"
+    ],
+    "fields": [
+        {
+            "fieldname": "item_code",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "label": "Book (Item)",
+            "options": "Item",
+            "reqd": 1,
+            "search_index": 1
+        },
+        {
+            "fetch_from": "item_code.item_name",
+            "fieldname": "item_name",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Book Name",
+            "read_only": 1
+        },
+        {
+            "fetch_from": "item_code.custom_class_grade",
+            "fieldname": "class_grade",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Class/Grade",
+            "read_only": 1
+        },
+        {
+            "fetch_from": "item_code.custom_subject",
+            "fieldname": "subject",
+            "fieldtype": "Data",
+            "label": "Subject",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_1",
+            "fieldtype": "Column Break"
+        },
+        {
+            "default": "1",
+            "fieldname": "qty",
+            "fieldtype": "Float",
+            "in_list_view": 1,
+            "label": "Qty Distributed",
+            "reqd": 1
+        },
+        {
+            "fetch_from": "item_code.stock_uom",
+            "fieldname": "stock_uom",
+            "fieldtype": "Link",
+            "label": "UOM",
+            "options": "UOM",
+            "read_only": 1
+        },
+        {
+            "description": "Available in van",
+            "fieldname": "available_qty_in_van",
+            "fieldtype": "Float",
+            "label": "Available in Van",
+            "read_only": 1
+        },
+        {
+            "fieldname": "collection_section",
+            "fieldtype": "Section Break",
+            "label": "Collection Details"
+        },
+        {
+            "default": "0",
+            "fieldname": "qty_collected",
+            "fieldtype": "Float",
+            "in_list_view": 1,
+            "label": "Qty Collected"
+        },
+        {
+            "fieldname": "qty_pending",
+            "fieldtype": "Float",
+            "label": "Qty Pending",
+            "read_only": 1
+        },
+        {
+            "default": "Pending",
+            "fieldname": "collection_status",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "label": "Collection Status",
+            "options": "Pending\nPartial\nCollected",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_2",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "expected_return_date",
+            "fieldtype": "Date",
+            "label": "Expected Return Date"
+        },
+        {
+            "fieldname": "remarks",
+            "fieldtype": "Small Text",
+            "label": "Remarks"
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "istable": 1,
+    "links": [],
+    "modified": "2024-01-01 00:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "Trustbit School Pro",
+    "name": "Book Sample Distribution Item",
+    "owner": "Administrator",
+    "permissions": [],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "track_changes": 1
+}

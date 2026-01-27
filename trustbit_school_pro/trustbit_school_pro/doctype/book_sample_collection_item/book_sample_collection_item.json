@@ -1,0 +1,128 @@
+{
+    "actions": [],
+    "creation": "2024-01-01 00:00:00.000000",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "item_code",
+        "item_name",
+        "class_grade",
+        "column_break_1",
+        "qty_distributed",
+        "qty_previously_collected",
+        "qty_pending",
+        "collection_section",
+        "qty_collected",
+        "qty_damaged",
+        "qty_lost",
+        "column_break_2",
+        "condition",
+        "remarks"
+    ],
+    "fields": [
+        {
+            "fieldname": "item_code",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "label": "Book (Item)",
+            "options": "Item",
+            "reqd": 1,
+            "search_index": 1
+        },
+        {
+            "fetch_from": "item_code.item_name",
+            "fieldname": "item_name",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Book Name",
+            "read_only": 1
+        },
+        {
+            "fetch_from": "item_code.custom_class_grade",
+            "fieldname": "class_grade",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Class/Grade",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_1",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "qty_distributed",
+            "fieldtype": "Float",
+            "in_list_view": 1,
+            "label": "Qty Distributed",
+            "read_only": 1
+        },
+        {
+            "fieldname": "qty_previously_collected",
+            "fieldtype": "Float",
+            "label": "Previously Collected",
+            "read_only": 1
+        },
+        {
+            "fieldname": "qty_pending",
+            "fieldtype": "Float",
+            "in_list_view": 1,
+            "label": "Qty Pending",
+            "read_only": 1
+        },
+        {
+            "fieldname": "collection_section",
+            "fieldtype": "Section Break",
+            "label": "Collection"
+        },
+        {
+            "default": "0",
+            "fieldname": "qty_collected",
+            "fieldtype": "Float",
+            "in_list_view": 1,
+            "label": "Qty Collected Now",
+            "reqd": 1
+        },
+        {
+            "default": "0",
+            "fieldname": "qty_damaged",
+            "fieldtype": "Float",
+            "label": "Qty Damaged",
+            "description": "Books returned but damaged"
+        },
+        {
+            "default": "0",
+            "fieldname": "qty_lost",
+            "fieldtype": "Float",
+            "label": "Qty Lost/Not Returned",
+            "description": "Books not returned by school"
+        },
+        {
+            "fieldname": "column_break_2",
+            "fieldtype": "Column Break"
+        },
+        {
+            "default": "Good",
+            "fieldname": "condition",
+            "fieldtype": "Select",
+            "label": "Condition",
+            "options": "Good\nFair\nDamaged\nNot Returned"
+        },
+        {
+            "fieldname": "remarks",
+            "fieldtype": "Small Text",
+            "label": "Remarks"
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "istable": 1,
+    "links": [],
+    "modified": "2024-01-01 00:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "Trustbit School Pro",
+    "name": "Book Sample Collection Item",
+    "owner": "Administrator",
+    "permissions": [],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "track_changes": 1
+}

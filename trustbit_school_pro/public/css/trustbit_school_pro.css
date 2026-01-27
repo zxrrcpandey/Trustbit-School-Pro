@@ -1,0 +1,54 @@
+/* Trustbit School Pro - Custom Styles */
+
+/* Status badges */
+.indicator-pill.orange {
+    background-color: #ffeeba;
+    color: #856404;
+}
+
+.indicator-pill.blue {
+    background-color: #cce5ff;
+    color: #004085;
+}
+
+.indicator-pill.green {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.indicator-pill.red {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* Sample tracking highlight */
+.sample-pending {
+    background-color: #fff3cd !important;
+}
+
+.sample-collected {
+    background-color: #d4edda !important;
+}
+
+.sample-overdue {
+    background-color: #f8d7da !important;
+}
+
+/* Dashboard cards */
+.school-pro-dashboard .stat-card {
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.school-pro-dashboard .stat-card.pending {
+    border-left: 4px solid #ffc107;
+}
+
+.school-pro-dashboard .stat-card.distributed {
+    border-left: 4px solid #17a2b8;
+}
+
+.school-pro-dashboard .stat-card.collected {
+    border-left: 4px solid #28a745;
+}

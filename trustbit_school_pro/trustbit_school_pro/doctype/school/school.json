@@ -1,0 +1,234 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "autoname": "field:school_name",
+    "creation": "2024-01-01 00:00:00.000000",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "school_name",
+        "school_code",
+        "customer",
+        "column_break_1",
+        "school_type",
+        "board",
+        "medium",
+        "address_section",
+        "address_line_1",
+        "address_line_2",
+        "city",
+        "column_break_2",
+        "state",
+        "pincode",
+        "area_zone",
+        "contact_section",
+        "contact_person",
+        "designation",
+        "column_break_3",
+        "phone",
+        "mobile",
+        "email",
+        "status_section",
+        "is_active",
+        "remarks"
+    ],
+    "fields": [
+        {
+            "fieldname": "school_name",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "in_standard_filter": 1,
+            "label": "School Name",
+            "reqd": 1,
+            "unique": 1
+        },
+        {
+            "fieldname": "school_code",
+            "fieldtype": "Data",
+            "label": "School Code",
+            "unique": 1
+        },
+        {
+            "description": "Link to ERPNext Customer (Optional - for sales)",
+            "fieldname": "customer",
+            "fieldtype": "Link",
+            "label": "Customer",
+            "options": "Customer"
+        },
+        {
+            "fieldname": "column_break_1",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "school_type",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "in_standard_filter": 1,
+            "label": "School Type",
+            "options": "\nGovernment\nPrivate\nAided\nCBSE\nICSE\nState Board\nInternational"
+        },
+        {
+            "fieldname": "board",
+            "fieldtype": "Data",
+            "label": "Board"
+        },
+        {
+            "fieldname": "medium",
+            "fieldtype": "Select",
+            "label": "Medium",
+            "options": "\nEnglish\nHindi\nRegional\nBilingual"
+        },
+        {
+            "fieldname": "address_section",
+            "fieldtype": "Section Break",
+            "label": "Address"
+        },
+        {
+            "fieldname": "address_line_1",
+            "fieldtype": "Data",
+            "label": "Address Line 1"
+        },
+        {
+            "fieldname": "address_line_2",
+            "fieldtype": "Data",
+            "label": "Address Line 2"
+        },
+        {
+            "fieldname": "city",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "in_standard_filter": 1,
+            "label": "City"
+        },
+        {
+            "fieldname": "column_break_2",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "state",
+            "fieldtype": "Data",
+            "label": "State"
+        },
+        {
+            "fieldname": "pincode",
+            "fieldtype": "Data",
+            "label": "Pincode"
+        },
+        {
+            "fieldname": "area_zone",
+            "fieldtype": "Data",
+            "in_standard_filter": 1,
+            "label": "Area/Zone",
+            "description": "Sales territory or zone"
+        },
+        {
+            "fieldname": "contact_section",
+            "fieldtype": "Section Break",
+            "label": "Contact Details"
+        },
+        {
+            "fieldname": "contact_person",
+            "fieldtype": "Data",
+            "label": "Contact Person"
+        },
+        {
+            "fieldname": "designation",
+            "fieldtype": "Data",
+            "label": "Designation"
+        },
+        {
+            "fieldname": "column_break_3",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "phone",
+            "fieldtype": "Data",
+            "label": "Phone",
+            "options": "Phone"
+        },
+        {
+            "fieldname": "mobile",
+            "fieldtype": "Data",
+            "label": "Mobile",
+            "options": "Phone"
+        },
+        {
+            "fieldname": "email",
+            "fieldtype": "Data",
+            "label": "Email",
+            "options": "Email"
+        },
+        {
+            "fieldname": "status_section",
+            "fieldtype": "Section Break",
+            "label": "Status"
+        },
+        {
+            "default": "1",
+            "fieldname": "is_active",
+            "fieldtype": "Check",
+            "label": "Is Active"
+        },
+        {
+            "fieldname": "remarks",
+            "fieldtype": "Small Text",
+            "label": "Remarks"
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "links": [
+        {
+            "link_doctype": "Book Sample Distribution",
+            "link_fieldname": "school"
+        }
+    ],
+    "modified": "2024-01-01 00:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "Trustbit School Pro",
+    "name": "School",
+    "naming_rule": "By fieldname",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Stock User",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Stock Manager",
+            "share": 1,
+            "write": 1
+        }
+    ],
+    "quick_entry": 1,
+    "search_fields": "school_name,city,area_zone",
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "title_field": "school_name",
+    "track_changes": 1
+}

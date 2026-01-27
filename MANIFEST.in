@@ -1,0 +1,19 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+include license.txt
+recursive-include trustbit_school_pro *.css
+recursive-include trustbit_school_pro *.csv
+recursive-include trustbit_school_pro *.html
+recursive-include trustbit_school_pro *.ico
+recursive-include trustbit_school_pro *.js
+recursive-include trustbit_school_pro *.json
+recursive-include trustbit_school_pro *.md
+recursive-include trustbit_school_pro *.png
+recursive-include trustbit_school_pro *.py
+recursive-include trustbit_school_pro *.svg
+recursive-include trustbit_school_pro *.txt
+recursive-exclude trustbit_school_pro *.pyc

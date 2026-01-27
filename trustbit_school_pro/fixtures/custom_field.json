@@ -1,0 +1,35 @@
+[
+    {
+        "doctype": "Custom Field",
+        "dt": "Stock Entry",
+        "fieldname": "custom_book_sample_loading",
+        "fieldtype": "Link",
+        "options": "Book Sample Loading",
+        "label": "Book Sample Loading",
+        "insert_after": "remarks",
+        "read_only": 1,
+        "module": "Trustbit School Pro"
+    },
+    {
+        "doctype": "Custom Field",
+        "dt": "Stock Entry",
+        "fieldname": "custom_book_sample_distribution",
+        "fieldtype": "Link",
+        "options": "Book Sample Distribution",
+        "label": "Book Sample Distribution",
+        "insert_after": "custom_book_sample_loading",
+        "read_only": 1,
+        "module": "Trustbit School Pro"
+    },
+    {
+        "doctype": "Custom Field",
+        "dt": "Stock Entry",
+        "fieldname": "custom_book_sample_collection",
+        "fieldtype": "Link",
+        "options": "Book Sample Collection",
+        "label": "Book Sample Collection",
+        "insert_after": "custom_book_sample_distribution",
+        "read_only": 1,
+        "module": "Trustbit School Pro"
+    }
+]

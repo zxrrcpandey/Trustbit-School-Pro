@@ -1,0 +1,241 @@
+{
+    "actions": [],
+    "autoname": "naming_series:",
+    "creation": "2024-01-01 00:00:00.000000",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "naming_series",
+        "loading_date",
+        "vehicle",
+        "column_break_1",
+        "loader",
+        "loader_name",
+        "status",
+        "warehouse_section",
+        "source_warehouse",
+        "target_warehouse",
+        "items_section",
+        "items",
+        "total_qty",
+        "stock_entry_section",
+        "stock_entry",
+        "amended_from",
+        "remarks"
+    ],
+    "fields": [
+        {
+            "fieldname": "naming_series",
+            "fieldtype": "Select",
+            "label": "Series",
+            "options": "BSL-.YYYY.-",
+            "reqd": 1
+        },
+        {
+            "default": "Today",
+            "fieldname": "loading_date",
+            "fieldtype": "Date",
+            "in_list_view": 1,
+            "in_standard_filter": 1,
+            "label": "Loading Date",
+            "reqd": 1
+        },
+        {
+            "fieldname": "vehicle",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "in_standard_filter": 1,
+            "label": "Vehicle",
+            "options": "Vehicle",
+            "reqd": 1
+        },
+        {
+            "fieldname": "column_break_1",
+            "fieldtype": "Column Break"
+        },
+        {
+            "description": "Employee who loaded the books",
+            "fieldname": "loader",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "in_standard_filter": 1,
+            "label": "Loader (Employee)",
+            "options": "Employee",
+            "reqd": 1
+        },
+        {
+            "fetch_from": "loader.employee_name",
+            "fieldname": "loader_name",
+            "fieldtype": "Data",
+            "label": "Loader Name",
+            "read_only": 1
+        },
+        {
+            "default": "Draft",
+            "fieldname": "status",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "in_standard_filter": 1,
+            "label": "Status",
+            "options": "Draft\nLoaded\nIn Transit\nReturned\nCancelled",
+            "read_only": 1
+        },
+        {
+            "fieldname": "warehouse_section",
+            "fieldtype": "Section Break",
+            "label": "Warehouse Details"
+        },
+        {
+            "fieldname": "source_warehouse",
+            "fieldtype": "Link",
+            "label": "Source Warehouse",
+            "options": "Warehouse",
+            "reqd": 1
+        },
+        {
+            "description": "Auto-filled from Vehicle",
+            "fetch_from": "vehicle.warehouse",
+            "fieldname": "target_warehouse",
+            "fieldtype": "Link",
+            "label": "Target Warehouse (Van)",
+            "options": "Warehouse",
+            "read_only": 1
+        },
+        {
+            "fieldname": "items_section",
+            "fieldtype": "Section Break",
+            "label": "Items"
+        },
+        {
+            "fieldname": "items",
+            "fieldtype": "Table",
+            "label": "Books to Load",
+            "options": "Book Sample Loading Item",
+            "reqd": 1
+        },
+        {
+            "fieldname": "total_qty",
+            "fieldtype": "Float",
+            "label": "Total Quantity",
+            "read_only": 1
+        },
+        {
+            "collapsible": 1,
+            "fieldname": "stock_entry_section",
+            "fieldtype": "Section Break",
+            "label": "Stock Entry Reference"
+        },
+        {
+            "description": "Auto-created Stock Entry for material transfer",
+            "fieldname": "stock_entry",
+            "fieldtype": "Link",
+            "label": "Stock Entry",
+            "options": "Stock Entry",
+            "read_only": 1
+        },
+        {
+            "fieldname": "amended_from",
+            "fieldtype": "Link",
+            "label": "Amended From",
+            "no_copy": 1,
+            "options": "Book Sample Loading",
+            "print_hide": 1,
+            "read_only": 1
+        },
+        {
+            "fieldname": "remarks",
+            "fieldtype": "Small Text",
+            "label": "Remarks"
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "is_submittable": 1,
+    "links": [
+        {
+            "link_doctype": "Book Sample Distribution",
+            "link_fieldname": "loading_reference"
+        },
+        {
+            "link_doctype": "Stock Entry",
+            "link_fieldname": "custom_book_sample_loading"
+        }
+    ],
+    "modified": "2024-01-01 00:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "Trustbit School Pro",
+    "name": "Book Sample Loading",
+    "naming_rule": "By \"Naming Series\" field",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "amend": 1,
+            "cancel": 1,
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "submit": 1,
+            "write": 1
+        },
+        {
+            "amend": 1,
+            "cancel": 1,
+            "create": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Stock User",
+            "share": 1,
+            "submit": 1,
+            "write": 1
+        },
+        {
+            "amend": 1,
+            "cancel": 1,
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Stock Manager",
+            "share": 1,
+            "submit": 1,
+            "write": 1
+        }
+    ],
+    "search_fields": "vehicle,loader,loading_date",
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [
+        {
+            "color": "orange",
+            "title": "Draft"
+        },
+        {
+            "color": "blue",
+            "title": "Loaded"
+        },
+        {
+            "color": "purple",
+            "title": "In Transit"
+        },
+        {
+            "color": "green",
+            "title": "Returned"
+        },
+        {
+            "color": "red",
+            "title": "Cancelled"
+        }
+    ],
+    "track_changes": 1
+}

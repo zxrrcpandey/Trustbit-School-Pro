@@ -1,0 +1,280 @@
+{
+    "actions": [],
+    "autoname": "naming_series:",
+    "creation": "2024-01-01 00:00:00.000000",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "naming_series",
+        "collection_date",
+        "school",
+        "column_break_1",
+        "collector",
+        "collector_name",
+        "status",
+        "reference_section",
+        "distribution_reference",
+        "source_warehouse",
+        "column_break_ref",
+        "target_warehouse",
+        "items_section",
+        "items",
+        "totals_section",
+        "total_qty_collected",
+        "total_qty_damaged",
+        "column_break_totals",
+        "total_qty_lost",
+        "stock_entry_section",
+        "stock_entry",
+        "stock_entry_damaged",
+        "amended_from",
+        "remarks"
+    ],
+    "fields": [
+        {
+            "fieldname": "naming_series",
+            "fieldtype": "Select",
+            "label": "Series",
+            "options": "BSC-.YYYY.-",
+            "reqd": 1
+        },
+        {
+            "default": "Today",
+            "fieldname": "collection_date",
+            "fieldtype": "Date",
+            "in_list_view": 1,
+            "in_standard_filter": 1,
+            "label": "Collection Date",
+            "reqd": 1
+        },
+        {
+            "fieldname": "school",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "in_standard_filter": 1,
+            "label": "School",
+            "options": "School",
+            "reqd": 1,
+            "search_index": 1
+        },
+        {
+            "fieldname": "column_break_1",
+            "fieldtype": "Column Break"
+        },
+        {
+            "description": "Employee who collected the samples",
+            "fieldname": "collector",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "in_standard_filter": 1,
+            "label": "Collector (Employee)",
+            "options": "Employee",
+            "reqd": 1
+        },
+        {
+            "fetch_from": "collector.employee_name",
+            "fieldname": "collector_name",
+            "fieldtype": "Data",
+            "label": "Collector Name",
+            "read_only": 1
+        },
+        {
+            "default": "Draft",
+            "fieldname": "status",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "in_standard_filter": 1,
+            "label": "Status",
+            "options": "Draft\nCollected\nCancelled",
+            "read_only": 1
+        },
+        {
+            "fieldname": "reference_section",
+            "fieldtype": "Section Break",
+            "label": "Reference & Warehouse"
+        },
+        {
+            "description": "Link to original distribution",
+            "fieldname": "distribution_reference",
+            "fieldtype": "Link",
+            "label": "Distribution Reference",
+            "options": "Book Sample Distribution",
+            "reqd": 1
+        },
+        {
+            "default": "Samples in Field - TB",
+            "description": "'Samples in Field' warehouse",
+            "fieldname": "source_warehouse",
+            "fieldtype": "Link",
+            "label": "Source Warehouse",
+            "options": "Warehouse",
+            "reqd": 1
+        },
+        {
+            "fieldname": "column_break_ref",
+            "fieldtype": "Column Break"
+        },
+        {
+            "description": "Main warehouse to return books to",
+            "fieldname": "target_warehouse",
+            "fieldtype": "Link",
+            "label": "Target Warehouse",
+            "options": "Warehouse",
+            "reqd": 1
+        },
+        {
+            "fieldname": "items_section",
+            "fieldtype": "Section Break",
+            "label": "Items"
+        },
+        {
+            "fieldname": "items",
+            "fieldtype": "Table",
+            "label": "Books Collected",
+            "options": "Book Sample Collection Item",
+            "reqd": 1
+        },
+        {
+            "fieldname": "totals_section",
+            "fieldtype": "Section Break",
+            "label": "Totals"
+        },
+        {
+            "fieldname": "total_qty_collected",
+            "fieldtype": "Float",
+            "in_list_view": 1,
+            "label": "Total Qty Collected",
+            "read_only": 1
+        },
+        {
+            "fieldname": "total_qty_damaged",
+            "fieldtype": "Float",
+            "label": "Total Qty Damaged",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_totals",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "total_qty_lost",
+            "fieldtype": "Float",
+            "label": "Total Qty Lost",
+            "read_only": 1
+        },
+        {
+            "collapsible": 1,
+            "fieldname": "stock_entry_section",
+            "fieldtype": "Section Break",
+            "label": "Stock Entry Reference"
+        },
+        {
+            "description": "Stock Entry for collected books (Material Transfer)",
+            "fieldname": "stock_entry",
+            "fieldtype": "Link",
+            "label": "Stock Entry (Collection)",
+            "options": "Stock Entry",
+            "read_only": 1
+        },
+        {
+            "description": "Stock Entry for damaged/lost books (Material Issue/Write Off)",
+            "fieldname": "stock_entry_damaged",
+            "fieldtype": "Link",
+            "label": "Stock Entry (Damaged/Lost)",
+            "options": "Stock Entry",
+            "read_only": 1
+        },
+        {
+            "fieldname": "amended_from",
+            "fieldtype": "Link",
+            "label": "Amended From",
+            "no_copy": 1,
+            "options": "Book Sample Collection",
+            "print_hide": 1,
+            "read_only": 1
+        },
+        {
+            "fieldname": "remarks",
+            "fieldtype": "Small Text",
+            "label": "Remarks"
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "is_submittable": 1,
+    "links": [
+        {
+            "link_doctype": "Stock Entry",
+            "link_fieldname": "custom_book_sample_collection"
+        }
+    ],
+    "modified": "2024-01-01 00:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "Trustbit School Pro",
+    "name": "Book Sample Collection",
+    "naming_rule": "By \"Naming Series\" field",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "amend": 1,
+            "cancel": 1,
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "submit": 1,
+            "write": 1
+        },
+        {
+            "amend": 1,
+            "cancel": 1,
+            "create": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Stock User",
+            "share": 1,
+            "submit": 1,
+            "write": 1
+        },
+        {
+            "amend": 1,
+            "cancel": 1,
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Stock Manager",
+            "share": 1,
+            "submit": 1,
+            "write": 1
+        }
+    ],
+    "search_fields": "school,collector,collection_date,distribution_reference",
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [
+        {
+            "color": "orange",
+            "title": "Draft"
+        },
+        {
+            "color": "green",
+            "title": "Collected"
+        },
+        {
+            "color": "red",
+            "title": "Cancelled"
+        }
+    ],
+    "track_changes": 1
+}
