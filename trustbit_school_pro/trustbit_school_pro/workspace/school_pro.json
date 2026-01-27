@@ -1,0 +1,148 @@
+{
+    "charts": [],
+    "content": "[{\"id\":\"hero\",\"type\":\"hero\",\"data\":{\"title\":\"School Pro\",\"subtitle\":\"Book Sample Management for Schools\",\"color\":\"Blue\"}},{\"id\":\"shortcuts\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Shortcuts\",\"col\":12}},{\"id\":\"masters\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Masters</b></span>\",\"col\":12}},{\"id\":\"masters_cards\",\"type\":\"card\",\"data\":{\"card_name\":\"Masters\",\"col\":4}},{\"id\":\"transactions\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Sample Transactions</b></span>\",\"col\":12}},{\"id\":\"transactions_cards\",\"type\":\"card\",\"data\":{\"card_name\":\"Sample Transactions\",\"col\":4}},{\"id\":\"reports\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Reports</b></span>\",\"col\":12}},{\"id\":\"reports_cards\",\"type\":\"card\",\"data\":{\"card_name\":\"Reports\",\"col\":4}}]",
+    "creation": "2024-01-01 00:00:00.000000",
+    "custom_blocks": [],
+    "docstatus": 0,
+    "doctype": "Workspace",
+    "for_user": "",
+    "hide_custom": 0,
+    "icon": "book",
+    "idx": 0,
+    "is_hidden": 0,
+    "label": "School Pro",
+    "links": [
+        {
+            "hidden": 0,
+            "is_query_report": 0,
+            "label": "School",
+            "link_count": 0,
+            "link_to": "School",
+            "link_type": "DocType",
+            "onboard": 1,
+            "type": "Link"
+        },
+        {
+            "hidden": 0,
+            "is_query_report": 0,
+            "label": "Vehicle",
+            "link_count": 0,
+            "link_to": "Vehicle",
+            "link_type": "DocType",
+            "onboard": 1,
+            "type": "Link"
+        },
+        {
+            "hidden": 0,
+            "is_query_report": 0,
+            "label": "Book Sample Loading",
+            "link_count": 0,
+            "link_to": "Book Sample Loading",
+            "link_type": "DocType",
+            "onboard": 1,
+            "type": "Link"
+        },
+        {
+            "hidden": 0,
+            "is_query_report": 0,
+            "label": "Book Sample Distribution",
+            "link_count": 0,
+            "link_to": "Book Sample Distribution",
+            "link_type": "DocType",
+            "onboard": 1,
+            "type": "Link"
+        },
+        {
+            "hidden": 0,
+            "is_query_report": 0,
+            "label": "Book Sample Collection",
+            "link_count": 0,
+            "link_to": "Book Sample Collection",
+            "link_type": "DocType",
+            "onboard": 1,
+            "type": "Link"
+        },
+        {
+            "hidden": 0,
+            "is_query_report": 1,
+            "label": "Pending Sample Collection",
+            "link_count": 0,
+            "link_to": "Pending Sample Collection",
+            "link_type": "Report",
+            "onboard": 0,
+            "type": "Link"
+        }
+    ],
+    "modified": "2024-01-01 00:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "Trustbit School Pro",
+    "name": "School Pro",
+    "owner": "Administrator",
+    "parent_page": "",
+    "public": 1,
+    "restrict_to_domain": "",
+    "roles": [],
+    "sequence_id": 1,
+    "shortcuts": [
+        {
+            "color": "Blue",
+            "doc_view": "List",
+            "label": "School",
+            "link_to": "School",
+            "type": "DocType"
+        },
+        {
+            "color": "Green",
+            "doc_view": "List",
+            "label": "Vehicle",
+            "link_to": "Vehicle",
+            "type": "DocType"
+        },
+        {
+            "color": "Orange",
+            "doc_view": "List",
+            "label": "Book Sample Loading",
+            "link_to": "Book Sample Loading",
+            "type": "DocType"
+        },
+        {
+            "color": "Yellow",
+            "doc_view": "List",
+            "label": "Book Sample Distribution",
+            "link_to": "Book Sample Distribution",
+            "type": "DocType"
+        },
+        {
+            "color": "Cyan",
+            "doc_view": "List",
+            "label": "Book Sample Collection",
+            "link_to": "Book Sample Collection",
+            "type": "DocType"
+        },
+        {
+            "color": "Red",
+            "doc_view": "",
+            "label": "Pending Collections",
+            "link_to": "Pending Sample Collection",
+            "type": "Report"
+        }
+    ],
+    "title": "School Pro",
+    "cards": [
+        {
+            "hidden": 0,
+            "label": "Masters",
+            "links": "[\n    {\n        \"label\": \"School\",\n        \"name\": \"School\",\n        \"type\": \"DocType\",\n        \"description\": \"Manage schools receiving book samples\"\n    },\n    {\n        \"label\": \"Vehicle\",\n        \"name\": \"Vehicle\",\n        \"type\": \"DocType\",\n        \"description\": \"Manage vehicles/vans for sample distribution\"\n    }\n]"
+        },
+        {
+            "hidden": 0,
+            "label": "Sample Transactions",
+            "links": "[\n    {\n        \"label\": \"Book Sample Loading\",\n        \"name\": \"Book Sample Loading\",\n        \"type\": \"DocType\",\n        \"description\": \"Load books from warehouse to van\"\n    },\n    {\n        \"label\": \"Book Sample Distribution\",\n        \"name\": \"Book Sample Distribution\",\n        \"type\": \"DocType\",\n        \"description\": \"Distribute samples to schools\"\n    },\n    {\n        \"label\": \"Book Sample Collection\",\n        \"name\": \"Book Sample Collection\",\n        \"type\": \"DocType\",\n        \"description\": \"Collect samples back from schools\"\n    }\n]"
+        },
+        {
+            "hidden": 0,
+            "label": "Reports",
+            "links": "[\n    {\n        \"label\": \"Pending Sample Collection\",\n        \"name\": \"Pending Sample Collection\",\n        \"type\": \"Report\",\n        \"is_query_report\": true,\n        \"description\": \"View pending samples to collect from schools\"\n    }\n]"
+        }
+    ]
+}
