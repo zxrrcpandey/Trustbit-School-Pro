@@ -120,6 +120,12 @@ def get_stock_balance(item_code, warehouse):
 
 
 @frappe.whitelist()
+def get_stock_balance_api(item_code, warehouse):
+    """API to get stock balance - called from client script"""
+    return get_stock_balance(item_code, warehouse)
+
+
+@frappe.whitelist()
 def get_items_for_vehicle(vehicle):
     """Get current stock items in vehicle warehouse"""
     warehouse = frappe.db.get_value("Vehicle", vehicle, "warehouse")
