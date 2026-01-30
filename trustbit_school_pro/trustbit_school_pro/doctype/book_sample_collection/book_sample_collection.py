@@ -37,12 +37,14 @@ class BookSampleCollection(Document):
         for item in self.items:
             total_collection = flt(item.qty_collected) + flt(item.qty_damaged) + flt(item.qty_lost)
 
-            if total_collection > flt(item.qty_pending):
-                frappe.throw(
-                    _("Total collection ({0}) cannot exceed pending quantity ({1}) for {2}").format(
-                        total_collection, item.qty_pending, item.item_code
+            # Only validate against pending if qty_pending is set (from distribution)
+            if item.qty_pending is not None and flt(item.qty_pending) > 0:
+                if total_collection > flt(item.qty_pending):
+                    frappe.throw(
+                        _("Total collection ({0}) cannot exceed pending quantity ({1}) for {2}").format(
+                            total_collection, item.qty_pending, item.item_code
+                        )
                     )
-                )
 
             if flt(item.qty_collected) < 0 or flt(item.qty_damaged) < 0 or flt(item.qty_lost) < 0:
                 frappe.throw(_("Quantities cannot be negative for {0}").format(item.item_code))
