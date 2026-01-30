@@ -86,6 +86,7 @@
             "label": "Collection Details"
         },
         {
+            "allow_on_submit": 1,
             "default": "0",
             "fieldname": "qty_collected",
             "fieldtype": "Float",
@@ -93,12 +94,14 @@
             "label": "Qty Collected"
         },
         {
+            "allow_on_submit": 1,
             "fieldname": "qty_pending",
             "fieldtype": "Float",
             "label": "Qty Pending",
             "read_only": 1
         },
         {
+            "allow_on_submit": 1,
             "default": "Pending",
             "fieldname": "collection_status",
             "fieldtype": "Select",
