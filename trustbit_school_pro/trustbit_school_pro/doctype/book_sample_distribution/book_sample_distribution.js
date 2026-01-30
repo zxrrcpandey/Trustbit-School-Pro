@@ -54,12 +54,13 @@ function show_class_grade_dialog(frm, cdt, cdn) {
             doctype: 'Class Grade',
             filters: { is_active: 1 },
             fields: ['name', 'class_order'],
-            order_by: 'class_order asc',
             limit_page_length: 0
         },
         callback: function(r) {
             if (r.message) {
-                let options = r.message.map(cg => ({
+                // Sort by class_order
+                let sorted = r.message.sort((a, b) => (a.class_order || 0) - (b.class_order || 0));
+                let options = sorted.map(cg => ({
                     label: cg.name,
                     value: cg.name,
                     checked: current_values.includes(cg.name)
