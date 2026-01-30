@@ -41,8 +41,7 @@
             "fieldname": "class_grade",
             "fieldtype": "Data",
             "in_list_view": 1,
-            "label": "Class/Grade",
-            "read_only": 1
+            "label": "Class/Grade"
         },
         {
             "fieldname": "column_break_1",

@@ -32,8 +32,59 @@ frappe.ui.form.on('Book Sample Distribution Item', {
         }
     },
 
+    class_grade: function(frm, cdt, cdn) {
+        // Open multiselect dialog when class_grade field is clicked/edited
+        show_class_grade_dialog(frm, cdt, cdn);
+    },
+
     items_add: function(frm, cdt, cdn) {
         // Set default qty
         frappe.model.set_value(cdt, cdn, 'qty', 1);
     }
 });
+
+function show_class_grade_dialog(frm, cdt, cdn) {
+    let row = locals[cdt][cdn];
+    let current_values = row.class_grade ? row.class_grade.split(', ').map(v => v.trim()) : [];
+
+    // Fetch all class grades
+    frappe.call({
+        method: 'frappe.client.get_list',
+        args: {
+            doctype: 'Class Grade',
+            filters: { is_active: 1 },
+            fields: ['name', 'class_order'],
+            order_by: 'class_order asc',
+            limit_page_length: 0
+        },
+        callback: function(r) {
+            if (r.message) {
+                let options = r.message.map(cg => ({
+                    label: cg.name,
+                    value: cg.name,
+                    checked: current_values.includes(cg.name)
+                }));
+
+                let d = new frappe.ui.Dialog({
+                    title: __('Select Class/Grade'),
+                    fields: [
+                        {
+                            fieldname: 'class_grades',
+                            fieldtype: 'MultiCheck',
+                            label: __('Class/Grades'),
+                            options: options,
+                            columns: 4
+                        }
+                    ],
+                    primary_action_label: __('Select'),
+                    primary_action: function(values) {
+                        let selected = values.class_grades || [];
+                        frappe.model.set_value(cdt, cdn, 'class_grade', selected.join(', '));
+                        d.hide();
+                    }
+                });
+                d.show();
+            }
+        }
+    });
+}
