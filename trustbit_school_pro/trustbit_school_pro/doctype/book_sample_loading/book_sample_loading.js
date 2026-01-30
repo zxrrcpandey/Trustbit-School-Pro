@@ -26,8 +26,22 @@ frappe.ui.form.on('Book Sample Loading', {
 frappe.ui.form.on('Book Sample Loading Item', {
     item_code: function(frm, cdt, cdn) {
         let row = locals[cdt][cdn];
-        if (row.item_code && frm.doc.source_warehouse) {
-            update_available_qty_row(frm, row, cdt, cdn);
+        if (row.item_code) {
+            // Fetch class grades for the item
+            frappe.call({
+                method: 'trustbit_school_pro.trustbit_school_pro.doctype.book_sample_loading.book_sample_loading.get_item_class_grades',
+                args: { item_code: row.item_code },
+                callback: function(r) {
+                    if (r.message !== undefined) {
+                        frappe.model.set_value(cdt, cdn, 'class_grade', r.message);
+                    }
+                }
+            });
+
+            // Fetch available qty
+            if (frm.doc.source_warehouse) {
+                update_available_qty_row(frm, row, cdt, cdn);
+            }
         }
     },
 

@@ -42,6 +42,14 @@
             "label": "Area/Zone",
             "mandatory": 0,
             "wildcard_filter": 0
+        },
+        {
+            "fieldname": "class_grade",
+            "fieldtype": "Link",
+            "label": "Class/Grade",
+            "mandatory": 0,
+            "options": "Class Grade",
+            "wildcard_filter": 0
         }
     ],
     "is_standard": "Yes",

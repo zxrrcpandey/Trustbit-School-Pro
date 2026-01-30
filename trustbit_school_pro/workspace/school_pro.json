@@ -1,6 +1,6 @@
 {
     "charts": [],
-    "content": "[{\"id\": \"sp_header1\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\"><b>Quick Access</b></span>\", \"col\": 12}}, {\"id\": \"sp_short1\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"School\", \"col\": 4}}, {\"id\": \"sp_short2\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Vehicle\", \"col\": 4}}, {\"id\": \"sp_short3\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Book Sample Loading\", \"col\": 4}}, {\"id\": \"sp_short4\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Book Sample Distribution\", \"col\": 4}}, {\"id\": \"sp_short5\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Book Sample Collection\", \"col\": 4}}, {\"id\": \"sp_spacer1\", \"type\": \"spacer\", \"data\": {\"col\": 12}}, {\"id\": \"sp_header2\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\"><b>Reports</b></span>\", \"col\": 12}}, {\"id\": \"sp_report1\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Pending Sample Collection\", \"col\": 4}}, {\"id\": \"sp_spacer2\", \"type\": \"spacer\", \"data\": {\"col\": 12}}, {\"id\": \"sp_header3\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\"><b>Ledger</b></span>\", \"col\": 12}}, {\"id\": \"sp_ledger1\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Book Sample Ledger\", \"col\": 4}}, {\"id\": \"sp_ledger2\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"School Sample Ledger\", \"col\": 4}}, {\"id\": \"sp_ledger3\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Vehicle Sample Ledger\", \"col\": 4}}]",
+    "content": "[{\"id\": \"sp_header1\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\"><b>Quick Access</b></span>\", \"col\": 12}}, {\"id\": \"sp_short1\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"School\", \"col\": 4}}, {\"id\": \"sp_short2\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Vehicle\", \"col\": 4}}, {\"id\": \"sp_short6\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Class Grade\", \"col\": 4}}, {\"id\": \"sp_short3\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Book Sample Loading\", \"col\": 4}}, {\"id\": \"sp_short4\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Book Sample Distribution\", \"col\": 4}}, {\"id\": \"sp_short5\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Book Sample Collection\", \"col\": 4}}, {\"id\": \"sp_spacer1\", \"type\": \"spacer\", \"data\": {\"col\": 12}}, {\"id\": \"sp_header2\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\"><b>Reports</b></span>\", \"col\": 12}}, {\"id\": \"sp_report1\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Pending Sample Collection\", \"col\": 4}}, {\"id\": \"sp_spacer2\", \"type\": \"spacer\", \"data\": {\"col\": 12}}, {\"id\": \"sp_header3\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\"><b>Ledger</b></span>\", \"col\": 12}}, {\"id\": \"sp_ledger1\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Book Sample Ledger\", \"col\": 4}}, {\"id\": \"sp_ledger2\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"School Sample Ledger\", \"col\": 4}}, {\"id\": \"sp_ledger3\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Vehicle Sample Ledger\", \"col\": 4}}]",
     "creation": "2024-01-01 00:00:00.000000",
     "custom_blocks": [],
     "docstatus": 0,
@@ -27,6 +27,15 @@
             "label": "Vehicle",
             "link_count": 0,
             "link_to": "Vehicle",
+            "link_type": "DocType",
+            "type": "Link"
+        },
+        {
+            "hidden": 0,
+            "is_query_report": 0,
+            "label": "Class Grade",
+            "link_count": 0,
+            "link_to": "Class Grade",
             "link_type": "DocType",
             "type": "Link"
         },
@@ -117,6 +126,13 @@
             "doc_view": "List",
             "label": "Vehicle",
             "link_to": "Vehicle",
+            "type": "DocType"
+        },
+        {
+            "color": "Teal",
+            "doc_view": "List",
+            "label": "Class Grade",
+            "link_to": "Class Grade",
             "type": "DocType"
         },
         {

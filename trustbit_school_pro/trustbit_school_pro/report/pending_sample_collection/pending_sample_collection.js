@@ -37,7 +37,8 @@ frappe.query_reports["Pending Sample Collection"] = {
         {
             "fieldname": "class_grade",
             "label": __("Class/Grade"),
-            "fieldtype": "Data"
+            "fieldtype": "Link",
+            "options": "Class Grade"
         },
         {
             "fieldname": "area_zone",

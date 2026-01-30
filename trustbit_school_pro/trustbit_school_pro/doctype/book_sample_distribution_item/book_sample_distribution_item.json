@@ -39,7 +39,6 @@
             "read_only": 1
         },
         {
-            "fetch_from": "item_code.custom_class_grade",
             "fieldname": "class_grade",
             "fieldtype": "Data",
             "in_list_view": 1,

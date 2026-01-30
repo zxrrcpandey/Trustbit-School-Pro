@@ -4,6 +4,7 @@ from frappe.custom.doctype.custom_field.custom_field import create_custom_fields
 
 def after_install():
     """Run after app installation"""
+    create_default_class_grades()
     create_item_custom_fields()
     create_sample_warehouse()
     frappe.db.commit()
@@ -36,17 +37,18 @@ def create_item_custom_fields():
                 "depends_on": "eval:doc.custom_is_sample_book",
             },
             {
-                "fieldname": "custom_class_grade",
-                "label": "Class/Grade",
-                "fieldtype": "Data",
+                "fieldname": "custom_class_grades",
+                "label": "Class/Grades",
+                "fieldtype": "Table MultiSelect",
+                "options": "Item Class Grade",
                 "insert_after": "custom_subject",
                 "depends_on": "eval:doc.custom_is_sample_book",
-                "description": "Class 1, 2, 3... 12",
+                "description": "Select one or more classes this book is for",
             },
             {
                 "fieldname": "custom_column_break_book",
                 "fieldtype": "Column Break",
-                "insert_after": "custom_class_grade",
+                "insert_after": "custom_class_grades",
             },
             {
                 "fieldname": "custom_author",
@@ -102,3 +104,39 @@ def create_sample_warehouse():
             })
             warehouse.insert(ignore_permissions=True)
             frappe.msgprint(f"'Samples in Field' warehouse created for {company}")
+
+
+def create_default_class_grades():
+    """Create default class grades"""
+    default_grades = [
+        {"class_name": "Nursery", "class_order": -3},
+        {"class_name": "LKG", "class_order": -2},
+        {"class_name": "UKG", "class_order": -1},
+        {"class_name": "Class 1", "class_order": 1},
+        {"class_name": "Class 2", "class_order": 2},
+        {"class_name": "Class 3", "class_order": 3},
+        {"class_name": "Class 4", "class_order": 4},
+        {"class_name": "Class 5", "class_order": 5},
+        {"class_name": "Class 6", "class_order": 6},
+        {"class_name": "Class 7", "class_order": 7},
+        {"class_name": "Class 8", "class_order": 8},
+        {"class_name": "Class 9", "class_order": 9},
+        {"class_name": "Class 10", "class_order": 10},
+        {"class_name": "Class 11", "class_order": 11},
+        {"class_name": "Class 12", "class_order": 12},
+    ]
+
+    created_count = 0
+    for grade in default_grades:
+        if not frappe.db.exists("Class Grade", grade["class_name"]):
+            doc = frappe.get_doc({
+                "doctype": "Class Grade",
+                "class_name": grade["class_name"],
+                "class_order": grade["class_order"],
+                "is_active": 1
+            })
+            doc.insert(ignore_permissions=True)
+            created_count += 1
+
+    if created_count > 0:
+        frappe.msgprint(f"{created_count} default Class Grades created successfully!")

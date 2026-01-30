@@ -132,11 +132,10 @@ def get_items_for_vehicle(vehicle):
     if not warehouse:
         return []
 
-    return frappe.db.sql("""
+    items = frappe.db.sql("""
         SELECT
             b.item_code,
             i.item_name,
-            i.custom_class_grade as class_grade,
             i.custom_subject as subject,
             b.actual_qty as available_qty,
             i.stock_uom
@@ -146,3 +145,21 @@ def get_items_for_vehicle(vehicle):
         AND b.actual_qty > 0
         ORDER BY i.item_name
     """, warehouse, as_dict=True)
+
+    # Fetch class grades for each item
+    for item in items:
+        item['class_grade'] = get_item_class_grades(item['item_code'])
+
+    return items
+
+
+@frappe.whitelist()
+def get_item_class_grades(item_code):
+    """Get class grades for an item as comma-separated string"""
+    class_grades = frappe.db.get_all(
+        "Item Class Grade",
+        filters={"parent": item_code, "parenttype": "Item"},
+        fields=["class_grade"],
+        order_by="idx"
+    )
+    return ", ".join([cg.class_grade for cg in class_grades]) if class_grades else ""
