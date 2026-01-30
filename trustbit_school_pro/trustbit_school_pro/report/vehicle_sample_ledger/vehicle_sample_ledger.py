@@ -111,7 +111,7 @@ def get_data(filters):
             'Book Sample Loading' as voucher_type,
             bsl.name as voucher_no,
             bsl.vehicle,
-            bsl.driver_name,
+            bsl.loader_name as driver_name,
             NULL as school,
             bsli.item_code,
             bsli.item_name,
