@@ -49,7 +49,7 @@
             "unique": 1
         },
         {
-            "description": "Link to ERPNext Customer (Optional - for sales)",
+            "description": "Link to Trustbit Customer (Optional - for sales)",
             "fieldname": "customer",
             "fieldtype": "Link",
             "label": "Customer",
