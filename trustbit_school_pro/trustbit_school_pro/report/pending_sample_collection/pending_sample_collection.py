@@ -19,81 +19,82 @@ def get_columns():
             "label": _("School"),
             "fieldtype": "Link",
             "options": "School",
-            "width": 200
+            "width": 150
         },
         {
             "fieldname": "distribution",
             "label": _("Distribution"),
             "fieldtype": "Link",
             "options": "Book Sample Distribution",
-            "width": 120
+            "width": 140
         },
         {
             "fieldname": "distribution_date",
-            "label": _("Distribution Date"),
+            "label": _("Date"),
             "fieldtype": "Date",
-            "width": 110
+            "width": 100
         },
         {
             "fieldname": "item_code",
             "label": _("Book"),
             "fieldtype": "Link",
             "options": "Item",
-            "width": 150
+            "width": 180
         },
         {
             "fieldname": "item_name",
             "label": _("Book Name"),
             "fieldtype": "Data",
-            "width": 200
+            "width": 150
         },
         {
             "fieldname": "class_grade",
             "label": _("Class"),
             "fieldtype": "Data",
-            "width": 80
+            "width": 70
         },
         {
             "fieldname": "qty_distributed",
-            "label": _("Distributed"),
+            "label": _("Dist"),
             "fieldtype": "Float",
-            "width": 100
+            "width": 70
         },
         {
             "fieldname": "qty_collected",
-            "label": _("Collected"),
+            "label": _("Coll"),
             "fieldtype": "Float",
-            "width": 100
+            "width": 70
         },
         {
             "fieldname": "qty_pending",
             "label": _("Pending"),
             "fieldtype": "Float",
-            "width": 100
+            "width": 80,
+            "indicator": "Red"
         },
         {
             "fieldname": "expected_return_date",
-            "label": _("Expected Return"),
+            "label": _("Return Date"),
             "fieldtype": "Date",
-            "width": 110
+            "width": 100
         },
         {
             "fieldname": "days_overdue",
-            "label": _("Days Overdue"),
+            "label": _("Overdue"),
             "fieldtype": "Int",
-            "width": 100
+            "width": 70
         },
         {
             "fieldname": "distributor_name",
             "label": _("Distributor"),
             "fieldtype": "Data",
-            "width": 150
+            "width": 120
         },
         {
             "fieldname": "area_zone",
             "label": _("Area/Zone"),
             "fieldtype": "Data",
-            "width": 120
+            "width": 100
         }
     ]
 
