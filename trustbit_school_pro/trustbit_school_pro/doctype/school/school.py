@@ -7,16 +7,7 @@ from frappe.model.document import Document
 
 class School(Document):
     def validate(self):
-        self.validate_contact()
-
-    def validate_contact(self):
-        """Validate at least one contact method is provided"""
-        if not self.phone and not self.mobile and not self.email:
-            frappe.msgprint(
-                "It is recommended to provide at least one contact method (Phone, Mobile, or Email)",
-                indicator="orange",
-                alert=True
-            )
+        pass  # No mandatory validations - contact info is optional
 
     def before_save(self):
         """Auto-create Customer if not linked"""
