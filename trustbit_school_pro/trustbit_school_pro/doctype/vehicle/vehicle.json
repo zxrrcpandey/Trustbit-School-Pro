@@ -73,7 +73,7 @@
             "label": "Driver Name"
         },
         {
-            "description": "Link to ERPNext Employee",
+            "description": "Link to Trustbit Employee",
             "fieldname": "driver_employee",
             "fieldtype": "Link",
             "label": "Driver (Employee)",
