@@ -87,7 +87,7 @@ function show_class_grade_dialog(frm, cdt, cdn) {
                             fieldtype: 'MultiCheck',
                             label: __('Class/Grades'),
                             options: options,
-                            columns: 4
+                            columns: 3
                         }
                     ],
                     primary_action_label: __('Select'),
