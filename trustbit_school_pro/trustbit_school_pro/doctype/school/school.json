@@ -64,6 +64,7 @@
             "fieldtype": "Select",
             "in_list_view": 1,
             "in_standard_filter": 1,
+            "in_quick_entry": 1,
             "label": "School Type",
             "options": "\nGovernment\nPrivate\nAided\nCBSE\nICSE\nState Board\nInternational"
         },
@@ -98,6 +99,7 @@
             "fieldtype": "Data",
             "in_list_view": 1,
             "in_standard_filter": 1,
+            "in_quick_entry": 1,
             "label": "City"
         },
         {
@@ -118,6 +120,7 @@
             "fieldname": "area_zone",
             "fieldtype": "Data",
             "in_standard_filter": 1,
+            "in_quick_entry": 1,
             "label": "Area/Zone",
             "description": "Sales territory or zone"
         },
