@@ -149,12 +149,13 @@ def get_data(filters):
     """.format(conditions=conditions.get("distribution", "")), filters, as_dict=True)
 
     # Get Collection entries (books collected from school)
+    # Note: Book Sample Collection doesn't have vehicle field
     collection_data = frappe.db.sql("""
         SELECT
             bsc.collection_date as date,
             'Book Sample Collection' as voucher_type,
             bsc.name as voucher_no,
-            bsc.vehicle,
+            NULL as vehicle,
             bsc.collector_name as driver_name,
             bsc.school,
             bsci.item_code,
@@ -217,7 +218,7 @@ def get_conditions(filters):
     if filters.get("vehicle"):
         conditions["loading"].append("AND bsl.vehicle = %(vehicle)s")
         conditions["distribution"].append("AND bsd.vehicle = %(vehicle)s")
-        conditions["collection"].append("AND bsc.vehicle = %(vehicle)s")
+        # Note: Book Sample Collection doesn't have vehicle field
 
     if filters.get("item_code"):
         conditions["loading"].append("AND bsli.item_code = %(item_code)s")

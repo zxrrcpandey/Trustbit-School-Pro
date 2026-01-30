@@ -152,7 +152,7 @@ def get_data(filters):
             bsci.item_name,
             bsci.class_grade,
             bsc.school,
-            bsc.vehicle,
+            NULL as vehicle,
             bsci.qty_collected as qty_in,
             0 as qty_out,
             bsc.target_warehouse as warehouse,
@@ -212,7 +212,7 @@ def get_conditions(filters):
     if filters.get("vehicle"):
         conditions["loading"].append("AND bsl.vehicle = %(vehicle)s")
         conditions["distribution"].append("AND bsd.vehicle = %(vehicle)s")
-        conditions["collection"].append("AND bsc.vehicle = %(vehicle)s")
+        # Note: Book Sample Collection doesn't have vehicle field
 
     if filters.get("school"):
         conditions["distribution"].append("AND bsd.school = %(school)s")
