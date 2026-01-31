@@ -1,0 +1,28 @@
+# Local development notes (do not commit)
+../DEVELOPMENT_NOTES.md
+DEVELOPMENT_NOTES.md
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Frappe
+*.egg-info/
+dist/
+build/
