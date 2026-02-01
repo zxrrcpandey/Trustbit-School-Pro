@@ -1,4 +1,4 @@
-// Item List - Add Barcode Filter
+// Item List - Add Barcode Search
 // Trustbit School Pro
 
 frappe.listview_settings['Item'] = frappe.listview_settings['Item'] || {};
@@ -12,34 +12,35 @@ frappe.listview_settings['Item'].onload = function(listview) {
         original_onload(listview);
     }
 
-    // Add Barcode filter
-    listview.page.add_field({
-        fieldname: 'barcode',
-        label: __('Barcode'),
-        fieldtype: 'Data',
-        onchange: function() {
-            let barcode = this.get_value();
-            if (barcode) {
-                // Search for item by barcode
+    // Add Barcode search button
+    listview.page.add_inner_button(__('Search by Barcode'), function() {
+        frappe.prompt([
+            {
+                label: __('Barcode'),
+                fieldname: 'barcode',
+                fieldtype: 'Data',
+                reqd: 1,
+                description: __('Enter or scan barcode')
+            }
+        ], function(values) {
+            if (values.barcode) {
                 frappe.call({
                     method: 'trustbit_school_pro.api.get_item_by_barcode',
-                    args: { barcode: barcode },
+                    args: { barcode: values.barcode },
                     callback: function(r) {
                         if (r.message) {
-                            // Filter by the found item
-                            listview.filter_area.add([[listview.doctype, 'name', '=', r.message]]);
+                            // Open the item directly
+                            frappe.set_route('Form', 'Item', r.message);
                         } else {
-                            frappe.show_alert({
-                                message: __('No item found with barcode: {0}', [barcode]),
+                            frappe.msgprint({
+                                title: __('Not Found'),
+                                message: __('No item found with barcode: {0}', [values.barcode]),
                                 indicator: 'orange'
-                            }, 3);
+                            });
                         }
                     }
                 });
-            } else {
-                // Clear the name filter if barcode is empty
-                listview.filter_area.remove('name');
             }
-        }
+        }, __('Search Item by Barcode'), __('Search'));
     });
 };
