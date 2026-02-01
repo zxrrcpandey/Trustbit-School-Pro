@@ -7,6 +7,7 @@ def after_install():
     create_default_class_grades()
     create_item_custom_fields()
     create_sample_warehouse()
+    create_school_pro_workspace()
     frappe.db.commit()
 
 
@@ -140,3 +141,33 @@ def create_default_class_grades():
 
     if created_count > 0:
         frappe.msgprint(f"{created_count} default Class Grades created successfully!")
+
+
+def create_school_pro_workspace():
+    """Create School Pro workspace if it doesn't exist"""
+    import json
+    import os
+
+    if frappe.db.exists("Workspace", "School Pro"):
+        return
+
+    # Path to workspace JSON file
+    workspace_path = os.path.join(
+        os.path.dirname(__file__),
+        "workspace",
+        "school_pro.json"
+    )
+
+    if not os.path.exists(workspace_path):
+        frappe.log_error(f"Workspace file not found: {workspace_path}")
+        return
+
+    try:
+        with open(workspace_path, "r") as f:
+            workspace_data = json.load(f)
+
+        doc = frappe.get_doc(workspace_data)
+        doc.insert(ignore_permissions=True)
+        frappe.msgprint("School Pro workspace created successfully!")
+    except Exception as e:
+        frappe.log_error(f"Error creating School Pro workspace: {str(e)}")
