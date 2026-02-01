@@ -1,4 +1,4 @@
-// Item List - Add Barcode Search
+// Item List - Add Barcode Filter
 // Trustbit School Pro
 
 frappe.listview_settings['Item'] = frappe.listview_settings['Item'] || {};
@@ -12,8 +12,8 @@ frappe.listview_settings['Item'].onload = function(listview) {
         original_onload(listview);
     }
 
-    // Add Barcode search button
-    listview.page.add_inner_button(__('Search by Barcode'), function() {
+    // Add Barcode filter button
+    listview.page.add_inner_button(__('Filter by Barcode'), function() {
         frappe.prompt([
             {
                 label: __('Barcode'),
@@ -29,8 +29,17 @@ frappe.listview_settings['Item'].onload = function(listview) {
                     args: { barcode: values.barcode },
                     callback: function(r) {
                         if (r.message) {
-                            // Open the item directly
-                            frappe.set_route('Form', 'Item', r.message);
+                            // Clear existing filters and add new filter for the found item
+                            listview.filter_area.clear();
+                            listview.filter_area.add([
+                                [listview.doctype, 'name', '=', r.message]
+                            ]);
+                            listview.refresh();
+
+                            frappe.show_alert({
+                                message: __('Filtered by barcode: {0}', [values.barcode]),
+                                indicator: 'green'
+                            }, 3);
                         } else {
                             frappe.msgprint({
                                 title: __('Not Found'),
@@ -41,6 +50,6 @@ frappe.listview_settings['Item'].onload = function(listview) {
                     }
                 });
             }
-        }, __('Search Item by Barcode'), __('Search'));
+        }, __('Filter by Barcode'), __('Filter'));
     });
 };
