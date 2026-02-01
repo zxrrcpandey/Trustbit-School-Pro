@@ -18,6 +18,11 @@ doctype_list_js = {
     "Item": "public/js/item_list.js"
 }
 
+# DocType JS - Add custom functionality to forms
+doctype_js = {
+    "Sales Invoice": "public/js/sales_invoice.js"
+}
+
 # Fixtures - Custom Fields for Stock Entry linking
 fixtures = [
     {
