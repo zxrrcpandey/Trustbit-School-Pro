@@ -13,6 +13,11 @@ doc_events = {
     },
 }
 
+# DocType List JS - Add custom filters to list views
+doctype_list_js = {
+    "Item": "public/js/item_list.js"
+}
+
 # Fixtures - Custom Fields for Stock Entry linking
 fixtures = [
     {
