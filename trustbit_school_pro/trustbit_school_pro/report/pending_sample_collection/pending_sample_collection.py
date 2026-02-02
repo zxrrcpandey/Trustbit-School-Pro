@@ -154,7 +154,8 @@ def get_conditions(filters):
         conditions.append("AND bsdi.item_code = %(item_code)s")
 
     if filters.get("class_grade"):
-        conditions.append("AND bsdi.class_grade = %(class_grade)s")
+        # class_grade field contains comma-separated values, so use LIKE for matching
+        conditions.append("AND bsdi.class_grade LIKE CONCAT('%%', %(class_grade)s, '%%')")
 
     if filters.get("area_zone"):
         conditions.append("AND s.area_zone = %(area_zone)s")

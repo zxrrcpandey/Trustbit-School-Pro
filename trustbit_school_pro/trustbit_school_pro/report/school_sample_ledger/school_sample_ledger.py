@@ -189,6 +189,11 @@ def get_conditions(filters):
         conditions["distribution"].append("AND s.area_zone = %(area_zone)s")
         conditions["collection"].append("AND s.area_zone = %(area_zone)s")
 
+    if filters.get("class_grade"):
+        # class_grade field contains comma-separated values, so use LIKE for matching
+        conditions["distribution"].append("AND bsdi.class_grade LIKE CONCAT('%%', %(class_grade)s, '%%')")
+        conditions["collection"].append("AND bsci.class_grade LIKE CONCAT('%%', %(class_grade)s, '%%')")
+
     return {
         "distribution": " ".join(conditions["distribution"]),
         "collection": " ".join(conditions["collection"])

@@ -218,6 +218,12 @@ def get_conditions(filters):
         conditions["distribution"].append("AND bsd.school = %(school)s")
         conditions["collection"].append("AND bsc.school = %(school)s")
 
+    if filters.get("class_grade"):
+        # class_grade field contains comma-separated values, so use LIKE for matching
+        conditions["loading"].append("AND bsli.class_grade LIKE CONCAT('%%', %(class_grade)s, '%%')")
+        conditions["distribution"].append("AND bsdi.class_grade LIKE CONCAT('%%', %(class_grade)s, '%%')")
+        conditions["collection"].append("AND bsci.class_grade LIKE CONCAT('%%', %(class_grade)s, '%%')")
+
     return {
         "loading": " ".join(conditions["loading"]),
         "distribution": " ".join(conditions["distribution"]),
